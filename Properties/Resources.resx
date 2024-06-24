@@ -126,6 +126,10 @@
   <data name="APPTITLE" xml:space="preserve">
     <value>OpenTrace</value>
   </data>
+  <data name="ASK_ADD_ICMP_FIREWALL_RULE" xml:space="preserve">
+    <value>NextTrace needs certain types (11 and 3) of ICMP messages to fully trace routes. But Windows firewall blocks these ICMP by default, causing only the last hop to be displayed.
+Would you like to add a firewall rule to allow needed ICMP for NextTrace?</value>
+  </data>
   <data name="AUTO_DETECT" xml:space="preserve">
     <value>(Auto Detect)</value>
   </data>
@@ -151,23 +155,39 @@
   <data name="COMBINE_GEO_ORG" xml:space="preserve">
     <value>Combine Geography and Organization into a single column</value>
   </data>
+  <data name="COPY" xml:space="preserve">
+    <value>Copy </value>
+  </data>
+  <data name="CUSTOM_DNS_RESOLVERS" xml:space="preserve">
+    <value>Custom DNS Resolvers
+(DNS / DoH Supported)</value>
+  </data>
   <data name="DISABLE_IPGEO" xml:space="preserve">
     <value>Disabled</value>
   </data>
   <data name="DST_PORT_INIT_SEQ" xml:space="preserve">
     <value>Destination port / Initial seq</value>
   </data>
+  <data name="EMPTY_HOSTNAME_MSGBOX" xml:space="preserve">
+    <value>Host or IP cannot be empty</value>
+  </data>
+  <data name="ENABLE_IP2REGION" xml:space="preserve">
+    <value>Enable offline database Ip2region (ip2region.db)</value>
+  </data>
+  <data name="ENABLE_IPINFOLOCAL" xml:space="preserve">
+    <value>Enable offline database IPInfo (ipinfoLocal.mmdb)</value>
+  </data>
   <data name="ERR_MSG" xml:space="preserve">
     <value>Error Message</value>
   </data>
-  <data name="ERR_WRITING_SETTTINGS" xml:space="preserve">
+  <data name="ERR_WRITING_SETTINGS" xml:space="preserve">
     <value>Error writing app settings.</value>
   </data>
   <data name="EXCEPTIONAL_EXIT_MSG" xml:space="preserve">
-    <value>NextTrace process exited unexpectedly. Please refer to the error message to learn more and report this issue to us promptly. Exit Code: </value>
+    <value>NextTrace process exited unexpectedly. Please refer to the error message to learn more and report this issue to us. Exit Code: </value>
   </data>
   <data name="EXC_OUTPUT_FORM_PROMPT" xml:space="preserve">
-    <value>NextTrace generated one or more unexpected outputs during runtime. Please check the output below for troubleshooting. We also encourage you to report this issue to us, which can help us improve OpenTrace.</value>
+    <value>NextTrace generated one or more unexpected outputs during runtime. Please check the output below for troubleshooting. You can refer to the NextTrace Wiki to see if there is already an answer; if you cannot find the answer, please report it to us.</value>
   </data>
   <data name="EXC_OUTPUT_FORM_REPORT" xml:space="preserve">
     <value>Report this issue</value>
@@ -184,6 +204,9 @@
   <data name="EXPORT_TO" xml:space="preserve">
     <value>Export To</value>
   </data>
+  <data name="FAILED_TO_ADD_RULES" xml:space="preserve">
+    <value>Failed to add firewall rules.</value>
+  </data>
   <data name="FILE" xml:space="preserve">
     <value>File</value>
   </data>
@@ -199,8 +222,14 @@
   <data name="googleMap" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\javascript\googleMap.js;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="GRID_SIZE_RATIO" xml:space="preserve">
+    <value>Grid Height Ratio</value>
+  </data>
   <data name="HELP" xml:space="preserve">
     <value>Help</value>
+  </data>
+  <data name="HIDE_ADD_FIREWALL_PROMPT" xml:space="preserve">
+    <value>Hide the prompt to add firewall rules</value>
   </data>
   <data name="HIDE_MAP_POPUP" xml:space="preserve">
     <value>Hide the map's info windows</value>
@@ -211,11 +240,14 @@
   <data name="HOSTNAME" xml:space="preserve">
     <value>Hostname</value>
   </data>
+  <data name="IPINFO_TOKEN" xml:space="preserve">
+    <value>IPInfo Token (Optional)</value>
+  </data>
   <data name="IP_GEO_DATA_PROVIDER" xml:space="preserve">
     <value>IP Geograph Data Provider</value>
   </data>
   <data name="LANGUAGE" xml:space="preserve">
-    <value>Language</value>
+    <value>Language (语言)</value>
   </data>
   <data name="LAST" xml:space="preserve">
     <value>Last</value>
@@ -225,6 +257,47 @@
   </data>
   <data name="LINKLOCAL_ADDR" xml:space="preserve">
     <value>Link-local Address</value>
+  </data>
+  <data name="LOCAL_MMDB" xml:space="preserve">
+    <value>Local MMDB Overwrite</value>
+  </data>
+  <data name="LOCAL_MMDB_ADDR" xml:space="preserve">
+    <value>Address Template</value>
+  </data>
+  <data name="LOCAL_MMDB_ASN" xml:space="preserve">
+    <value>ASN Template</value>
+  </data>
+  <data name="LOCAL_MMDB_HOSTNAME" xml:space="preserve">
+    <value>Hostname Template</value>
+  </data>
+  <data name="LOCAL_MMDB_LAT" xml:space="preserve">
+    <value>Latitude Template</value>
+  </data>
+  <data name="LOCAL_MMDB_LON" xml:space="preserve">
+    <value>Longitude Template</value>
+  </data>
+  <data name="LOCAL_MMDB_ORG" xml:space="preserve">
+    <value>Organization Template</value>
+  </data>
+  <data name="LOCAL_MMDB_PATH" xml:space="preserve">
+    <value>Local MMDB Path</value>
+  </data>
+  <data name="LOCAL_MMDB_PRESETS" xml:space="preserve">
+    <value>Presets</value>
+  </data>
+  <data name="LOCAL_MMDB_PREVIEW" xml:space="preserve">
+    <value>Preview MMDB File</value>
+  </data>
+  <data name="LOCAL_MMDB_PREVIEW_IP" xml:space="preserve">
+    <value>Preview MMDB IP</value>
+  </data>
+  <data name="LOCAL_MMDB_SELECT" xml:space="preserve">
+    <value>Select MMDB File</value>
+  </data>
+  <data name="LOCAL_MMDB_TIPS" xml:space="preserve">
+    <value>Use MMDB query result overwrite original result
+Leave empty to avoid overwrite field
+Template Example: {.country}-{.city}</value>
   </data>
   <data name="LOOPBACK_ADDR" xml:space="preserve">
     <value>Loopback Address</value>
@@ -259,6 +332,29 @@ OR
 
 Would you like to download the NextTrace utility now?</value>
   </data>
+  <data name="MISSING_COMP_TEXT_MACOS" xml:space="preserve">
+    <value>OpenTrace requires the NextTrace utility to function properly. This executable is currently missing.
+Please download NextTrace and set the permissions as follows:
+
+sudo xattr -r -d com.apple.quarantine /path/to/nexttrace
+sudo chown root:admin /path/to/nexttrace
+sudo chmod +sx /path/to/nexttrace
+
+And specify the path in the settings.
+
+Would you like to download the NextTrace utility now?</value>
+  </data>
+  <data name="MISSING_COMP_PRIV_MACOS" xml:space="preserve">
+    <value>OpenTrace requires privileges to perform TCP/UDP trace.
+Please set the permissions of NextTrace as follows:
+
+sudo xattr -r -d com.apple.quarantine /path/to/nexttrace
+sudo chown root:admin /path/to/nexttrace
+sudo chmod +sx /path/to/nexttrace</value>
+  </data>
+  <data name="MISSING_PRIV_MACOS" xml:space="preserve">
+    <value>OpenTrace requires privileges to perform TCP/UDP trace</value>
+  </data>
   <data name="MISSING_SPECIFIED_COMP" xml:space="preserve">
     <value>NextTrace could not be found in "{0}".</value>
   </data>
@@ -277,11 +373,15 @@ Would you like to download the NextTrace utility now?</value>
   <data name="NEXTTRACE_PROXY" xml:space="preserve">
     <value>Proxy</value>
   </data>
-  <data name="NO_RDNS" xml:space="preserve">
-    <value>Disable Reverse DNS Lookup</value>
+  <data name="RDNS_MODE" xml:space="preserve">
+    <value>Reverse DNS Lookup Mode</value>
   </data>
   <data name="ORGANIZATION" xml:space="preserve">
     <value>Organization</value>
+  </data>
+  <data name="OTHER_DATABASE_TIPS" xml:space="preserve">
+    <value>Some data sources can only be selected after setting up an API endpoint/token.
+To use an offline database, please refer to the NextTrace documentation to set it up.</value>
   </data>
   <data name="PACKET_GROUP_INTERVAL" xml:space="preserve">
     <value>Packet Group Interval</value>
@@ -293,6 +393,15 @@ Would you like to download the NextTrace utility now?</value>
   </data>
   <data name="PARALLEL_REQ" xml:space="preserve">
     <value>Parallel Requests</value>
+  </data>
+  <data name="POW_PROVIDER" xml:space="preserve">
+    <value>LeoMoeAPI PoW Provider</value>
+  </data>
+  <data name="POW_PROVIDER_LEOMOE" xml:space="preserve">
+    <value>api.leo.moe (Default)</value>
+  </data>
+  <data name="POW_PROVIDER_SAKURA" xml:space="preserve">
+    <value>Nya Labs (China Mainland Optimized)</value>
   </data>
   <data name="PREFERENCES" xml:space="preserve">
     <value>Preferences</value>
@@ -313,7 +422,7 @@ Would you like to download the NextTrace utility now?</value>
     <value>Recv</value>
   </data>
   <data name="RESTART_TO_APPLY" xml:space="preserve">
-    <value>Some settings may require a restart to take effect</value>
+    <value>Some settings will not be applied before the application is restarted</value>
   </data>
   <data name="SAVE" xml:space="preserve">
     <value>Save</value>
@@ -345,6 +454,9 @@ Would you like to download the NextTrace utility now?</value>
   <data name="STOP" xml:space="preserve">
     <value>Stop</value>
   </data>
+  <data name="SYSTEM_DNS_RESOLVER" xml:space="preserve">
+    <value>System DNS</value>
+  </data>
   <data name="TIME_MS" xml:space="preserve">
     <value>Time(ms)</value>
   </data>
@@ -359,5 +471,52 @@ Would you like to download the NextTrace utility now?</value>
   </data>
   <data name="WORST" xml:space="preserve">
     <value>Worst</value>
+  </data>
+  <data name="MACOS_QUARANTINE" xml:space="preserve">
+    <value>OpenTrace is quarantined by macOS, something may be inoperative.
+Please release OpenTrace as follows:
+
+sudo xattr -r -d com.apple.quarantine &lt;drag and drop OpenTrace here&gt;
+
+And restart OpenTrace after execution.</value>
+  </data>
+  <data name="HOMEPAGE" xml:space="preserve">
+    <value>Homepage</value>
+  </data>
+  <data name="RDNS_MODE_ALWAYS" xml:space="preserve">
+    <value>Attempt to Retrieve Full rDNS</value>
+  </data>
+  <data name="RDNS_MODE_DEFAULT" xml:space="preserve">
+    <value>Fast rDNS (Default)</value>
+  </data>
+  <data name="RDNS_MODE_DISABLE" xml:space="preserve">
+    <value>Disable rDNS Query</value>
+  </data>
+  <data name="CHECK_UPDATE_ON_STARTUP" xml:space="preserve">
+    <value>Check update on startup</value>
+  </data>
+  <data name="DOWNLOAD_LATEST" xml:space="preserve">
+    <value>Download latest OpenTrace</value>
+  </data>
+  <data name="UPDATE_AVAILABLE" xml:space="preserve">
+    <value>(Version {0} now available. Download it from the Help menu.)</value>
+  </data>
+  <data name="PRIVACY_MASKING" xml:space="preserve">
+    <value>Privacy Masking</value>
+  </data>
+  <data name="PRIVACY_MASKING_ALL" xml:space="preserve">
+    <value>hops by masking all info</value>
+  </data>
+  <data name="PRIVACY_MASKING_DESCR" xml:space="preserve">
+    <value>Protect the first</value>
+  </data>
+  <data name="PRIVACY_MASKING_IP_FULL" xml:space="preserve">
+    <value>hops by fully masking IP</value>
+  </data>
+  <data name="PRIVACY_MASKING_IP_GEO" xml:space="preserve">
+    <value>hops by masking IP and Geo</value>
+  </data>
+  <data name="PRIVACY_MASKING_IP_HALF" xml:space="preserve">
+    <value>hops by partially masking IP</value>
   </data>
 </root>

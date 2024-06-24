@@ -6,10 +6,10 @@ using System.Diagnostics;
 
 namespace OpenTrace
 {
-    public partial class ExceptionalOutputForm : Form
+    public partial class TextOutputForm : Form
     {
         private TextArea OutputContainer;
-        public ExceptionalOutputForm()
+        public TextOutputForm()
         {
             XamlReader.Load(this);
             OutputContainer = this.FindChild<TextArea>("OutputContainer");
@@ -23,13 +23,13 @@ namespace OpenTrace
             e.Cancel = true;
             Visible = false;
         }
-        private void ReportButton_Click(object sender, EventArgs e)
-        {
-            Process.Start(new ProcessStartInfo("https://github.com/Archeb/opentrace/issues/new/choose") { UseShellExecute = true });
-        }
         public void AppendOutput(string Output)
         {
             OutputContainer.Text += Output + Environment.NewLine;
+        }
+        public void ClearOutput()
+        {
+            OutputContainer.Text = "";
         }
     }
 }

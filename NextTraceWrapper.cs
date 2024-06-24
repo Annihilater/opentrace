@@ -46,36 +46,37 @@ namespace NextTrace
         public event EventHandler<AppQuitEventArgs> AppQuit;
         public event EventHandler<ExceptionalOutputEventArgs> ExceptionalOutput;
         private string nexttracePath;
+        private bool builtinNT = false;
         private int errorOutputCount = 0;
         public ObservableCollection<TracerouteResult> Output { get; } = new ObservableCollection<TracerouteResult>();
 
         public NextTraceWrapper()
         {
+            string curDir = AppDomain.CurrentDomain.BaseDirectory;
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
                 // 检查 Windows 平台可执行文件
                 List<string> winBinaryList = new List<string> { "nexttrace.exe", "nexttrace_windows_amd64.exe", "nexttrace_windows_arm64.exe", "nexttrace_windows_armv7.exe", "nexttrace_windows_386.exe" };
                 foreach (string winBinaryName in winBinaryList)
                 {
-                    if (File.Exists(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, winBinaryName)))
+                    if (File.Exists(Path.Combine(curDir, winBinaryName)))
                     {
                         // 先检查根目录
-                        nexttracePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, winBinaryName);
+                        nexttracePath = Path.Combine(curDir, winBinaryName);
                         break;
-                    } else {
-                        // 再检查PATH变量
-                        string pathVar = Environment.GetEnvironmentVariable("PATH");
-                        string[] pathDirs = pathVar.Split(Path.PathSeparator);
-                        foreach (string pathDir in pathDirs)
-                        {
-                            if (File.Exists(Path.Combine(pathDir, winBinaryName)))
-                            {
-                                nexttracePath = Path.Combine(pathDir, winBinaryName);
-                                break;
-                            }
-                        }
-                        if (nexttracePath != null) break;
                     }
+                    // 再检查PATH变量
+                    string pathVar = Environment.GetEnvironmentVariable("PATH");
+                    string[] pathDirs = pathVar.Split(Path.PathSeparator);
+                    foreach (string pathDir in pathDirs)
+                    {
+                        if (File.Exists(Path.Combine(pathDir, winBinaryName)))
+                        {
+                            nexttracePath = Path.Combine(pathDir, winBinaryName);
+                            break;
+                        }
+                    }
+                    if (nexttracePath != null) break;
                 }
             }
             else
@@ -84,30 +85,33 @@ namespace NextTrace
                 List<string> otherBinaryList = new List<string> { "nexttrace", "nexttrace_android_arm64", "nexttrace_darwin_amd64", "nexttrace_darwin_arm64", "nexttrace_dragonfly_amd64", "nexttrace_freebsd_386", "nexttrace_freebsd_amd64", "nexttrace_freebsd_arm64", "nexttrace_freebsd_armv7", "nexttrace_linux_386", "nexttrace_linux_amd64", "nexttrace_linux_arm64", "nexttrace_linux_armv5", "nexttrace_linux_armv6", "nexttrace_linux_armv7", "nexttrace_linux_mips", "nexttrace_linux_mips64", "nexttrace_linux_mips64le", "nexttrace_linux_mipsle", "nexttrace_linux_ppc64", "nexttrace_linux_ppc64le", "nexttrace_linux_riscv64", "nexttrace_linux_s390x", "nexttrace_openbsd_386", "nexttrace_openbsd_amd64", "nexttrace_openbsd_arm64", "nexttrace_openbsd_armv7" };
                 foreach (string otherBinaryName in otherBinaryList)
                 {
-                    if (File.Exists(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, otherBinaryName)))
+                    if (File.Exists(Path.Combine(curDir, "OpenTrace.app/Contents/MacOS", otherBinaryName)))
                     {
-                        // 先检查根目录
-                        nexttracePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, otherBinaryName);
+                        nexttracePath = Path.Combine(curDir, "OpenTrace.app/Contents/MacOS", otherBinaryName);
+                        builtinNT = true;
                         break;
                     }
-                    else
+                    if (File.Exists(Path.Combine(curDir, otherBinaryName)))
                     {
-                        // 再检查PATH变量
-                        string pathVar = Environment.GetEnvironmentVariable("PATH");
-                        string[] pathDirs = pathVar.Split(Path.PathSeparator);
-                        foreach (string pathDir in pathDirs)
-                        {
-                            if (File.Exists(Path.Combine(pathDir, otherBinaryName)))
-                            {
-                                nexttracePath = Path.Combine(pathDir, otherBinaryName);
-                                break;
-                            }
-                        }
-                        if(nexttracePath != null) break; 
+                        nexttracePath = Path.Combine(curDir, otherBinaryName);
+                        builtinNT = true;
+                        break;
                     }
+                    
+                    string pathVar = Environment.GetEnvironmentVariable("PATH");
+                    string[] pathDirs = pathVar.Split(Path.PathSeparator);
+                    foreach (string pathDir in pathDirs)
+                    {
+                        if (File.Exists(Path.Combine(pathDir, otherBinaryName)))
+                        {
+                            nexttracePath = Path.Combine(pathDir, otherBinaryName);
+                            break;
+                        }
+                    }
+                    if (nexttracePath != null) break;
                 }
             }
-            
+
             // 检查是否手动指定了可执行文件
             if (UserSettings.executablePath != "")
             {
@@ -127,10 +131,11 @@ namespace NextTrace
             }
         }
 
-        public void Run(string host,bool MTRMode, params string[] extraArgs)
+        public void Run(string host, bool MTRMode, params string[] extraArgs)
         {
             Task.Run(() =>
             {
+                Console.WriteLine($"Using NextTrace: {nexttracePath}");
                 string arguments;
                 if (MTRMode)
                 {
@@ -140,6 +145,45 @@ namespace NextTrace
                 {
                     arguments = ArgumentBuilder(host, extraArgs);
                 }
+
+#if NET8_0_OR_GREATER
+                if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX) && 
+                    Array.Find(extraArgs, e => e == "-T" || e == "-U") != null &&
+                    Environment.UserName != "root")
+                {
+                    FileSystemInfo fa = new FileInfo(nexttracePath);
+                    if ((fa.UnixFileMode & UnixFileMode.SetUser) == 0) 
+                    {
+                        if (!builtinNT)
+                            App.app.Invoke(() => {
+                                Eto.Forms.MessageBox.Show(Resources.MISSING_COMP_PRIV_MACOS);
+                            });
+                        else 
+                        {
+                            var elvp = new Process
+                            {
+                                StartInfo = new ProcessStartInfo
+                                {
+                                    FileName = "/usr/bin/osascript",
+                                    ArgumentList = {
+                                        "-e",
+                                        $"do shell script \"chown root:admin '{nexttracePath}' && chmod +sx '{nexttracePath}'\" with administrator privileges with prompt \"{Resources.MISSING_PRIV_MACOS}\"",
+                                    },
+                                    UseShellExecute = false,
+                                    RedirectStandardOutput = false,
+                                    RedirectStandardError = false,
+                                    CreateNoWindow = true
+                                }
+                            };
+                            elvp.Start();
+                            elvp.WaitForExit();
+                        }
+                        Status = AppStatus.Quit;
+                        AppQuit?.Invoke(this, new AppQuitEventArgs(0));
+                        return;
+                    }
+                }
+#endif
                 _process = new Process
                 {
                     StartInfo = new ProcessStartInfo
@@ -153,15 +197,18 @@ namespace NextTrace
                         CreateNoWindow = true
                     }
                 };
+
                 if (UserSettings.IPInsightToken != "") _process.StartInfo.EnvironmentVariables.Add("NEXTTRACE_IPINSIGHT_TOKEN", UserSettings.IPInsightToken);
                 if (UserSettings.IPInfoToken != "") _process.StartInfo.EnvironmentVariables.Add("NEXTTRACE_IPINFO_TOKEN", UserSettings.IPInfoToken);
                 if (UserSettings.ChunZhenEndpoint != "") _process.StartInfo.EnvironmentVariables.Add("NEXTTRACE_CHUNZHENURL", UserSettings.ChunZhenEndpoint);
                 if (UserSettings.LeoMoeAPI_HOSTPORT != "") _process.StartInfo.EnvironmentVariables.Add("NEXTTRACE_HOSTPORT", UserSettings.LeoMoeAPI_HOSTPORT);
                 if (UserSettings.NextTraceProxy != "") _process.StartInfo.EnvironmentVariables.Add("NEXTTRACE_PROXY", UserSettings.NextTraceProxy);
+                if (UserSettings.POWProvider != "") _process.StartInfo.EnvironmentVariables.Add("NEXTTRACE_POWPROVIDER", UserSettings.POWProvider);
+                if (UserSettings.IPAPI_Base != "") _process.StartInfo.EnvironmentVariables.Add("NEXTTRACE_IPAPI_BASE", UserSettings.IPAPI_Base);
 
                 if (MTRMode) // 添加环境变量让NextTrace进入持续追踪模式
                     _process.StartInfo.EnvironmentVariables.Add("NEXTTRACE_UNINTERRUPTED", "1");
-                
+
                 Regex match1stLine = new Regex(@"^\d{1,2}\|");
                 _process.OutputDataReceived += (sender, e) =>
                 {
@@ -275,6 +322,53 @@ namespace NextTrace
                 Geolocation = Resources.LOOPBACK_ADDR;
             }
 
+            // 打码 IP 地址
+            // maskedHopsMode 设置包含 ip_half, ip_full, ip_geo, all 四种打码模式
+            // maskedHops 指示打码的跳数
+            
+            
+            if (UserSettings.maskedHops > 0 && int.Parse(No) <= UserSettings.maskedHops)
+            {
+                if (UserSettings.maskedHopsMode == "ip_half")
+                {
+                    if (IP.Contains(":"))
+                    {
+                        // IPv6 全部打码
+                        IP = "****";
+                    }
+                    else if (IP.Contains("."))
+                    {
+                        // IPv4 打码后 2 节
+                        IP = string.Join(".", IP.Split('.').Take(2).Concat(new string[] { "xx", "xx" }));   
+                    }
+                    // 删除主机名
+                    Hostname = "";
+                }
+                else if (UserSettings.maskedHopsMode == "ip_full")
+                {
+                    IP = "****";
+                    // 删除主机名
+                    Hostname = "";
+                }
+                else if (UserSettings.maskedHopsMode == "ip_geo")
+                {
+                    IP = "****";
+                    Geolocation = "****";
+                    // 删除主机名
+                    Hostname = "";
+                }
+                else if (UserSettings.maskedHopsMode == "all")
+                {
+                    IP = "****";
+                    Geolocation = "****";
+                    AS = "****";
+                    Hostname = "";
+                    Organization = "****";
+                    Latitude = "****";
+                    Longitude = "****";
+                }
+            }
+
 
             return new TracerouteResult(No, IP, Time, Geolocation, AS, Hostname, Organization, Latitude, Longitude);
         }
@@ -289,14 +383,14 @@ namespace NextTrace
             UserSettings userSettings = new UserSettings();
             foreach (var setting in userSettings.GetType().GetProperties())
             {
-                if(checkArgsFromConfList.Contains(setting.Name) && (ignoreUserArgs == null || !ignoreUserArgs.Contains(setting.Name)))
+                if (checkArgsFromConfList.Contains(setting.Name) && (ignoreUserArgs == null || !ignoreUserArgs.Contains(setting.Name)))
                 {
-                    if((string)setting.GetValue(userSettings, null) != "")
+                    if ((string)setting.GetValue(userSettings, null) != "")
                         finalArgs.Add("--" + setting.Name.Replace('_', '-') + " " + (string)setting.GetValue(userSettings, null));
                 }
             }
-            if (UserSettings.no_rdns)
-                finalArgs.Add("--no-rdns");
+            if (UserSettings.rdns_mode == "disable") finalArgs.Add("-n");
+            if (UserSettings.rdns_mode == "always") finalArgs.Add("-a");
             finalArgs.Add(System.Globalization.CultureInfo.CurrentUICulture.Name.StartsWith("zh") ? "--language cn" : "--language en");
             finalArgs.Add(UserSettings.arguments);
             finalArgs.AddRange(extraArgs);

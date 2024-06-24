@@ -2,9 +2,22 @@ name: build-windows
 
 on:
   push:
-    branches: [ "master" ]
+    branches:
+      - master
+    paths:
+      - "**/*.cs"
+      - "**/*.csproj"
+      - "**/*.resx"
+      - ".github/workflows/*.yml"
   pull_request:
-    branches: [ "master" ]
+    branches:
+      - master
+    types: [opened, synchronize, reopened]
+    paths:
+      - "**/*.cs"
+      - "**/*.csproj"
+      - "**/*.resx"
+      - ".github/workflows/*.yml"
 
 jobs:
 
@@ -26,7 +39,7 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: 6.0.x
+        dotnet-version: 8
         
     - name: Build for ${{ matrix.runtime }}
       run: |

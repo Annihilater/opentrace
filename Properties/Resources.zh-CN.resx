@@ -126,6 +126,13 @@
   <data name="APPTITLE" xml:space="preserve">
     <value>OpenTrace</value>
   </data>
+  <data name="ASK_ADD_ICMP_FIREWALL_RULE" xml:space="preserve">
+    <value>NextTrace 需要接收特殊的 ICMP 响应报文来构建完整的 traceroute 信息；但默认情况下，Windows 防火墙会拦截此类消息，导致您只能看到 traceroute 的最后一跳。
+
+您可以点击“是”来自动添加防火墙规则，也可以点“否”取消这一操作。
+
+若要获得更多信息，请参考 https://github.com/nxtrace/Ntrace-core/issues/52</value>
+  </data>
   <data name="AUTO_DETECT" xml:space="preserve">
     <value>(留空自动检测)</value>
   </data>
@@ -147,23 +154,39 @@
   <data name="COMBINE_GEO_ORG" xml:space="preserve">
     <value>把地理位置和组织信息合为一栏</value>
   </data>
+  <data name="COPY" xml:space="preserve">
+    <value>复制</value>
+  </data>
+  <data name="CUSTOM_DNS_RESOLVERS" xml:space="preserve">
+    <value>自定义DNS服务器
+(支持 UDP / DoH)</value>
+  </data>
   <data name="DISABLE_IPGEO" xml:space="preserve">
     <value>禁用地理位置</value>
   </data>
   <data name="DST_PORT_INIT_SEQ" xml:space="preserve">
     <value>目标端口 / 初始序号</value>
   </data>
+  <data name="EMPTY_HOSTNAME_MSGBOX" xml:space="preserve">
+    <value>主机或 IP 不能为空</value>
+  </data>
+  <data name="ENABLE_IP2REGION" xml:space="preserve">
+    <value>启用 Ip2region 离线库 (ip2region.db)</value>
+  </data>
+  <data name="ENABLE_IPINFOLOCAL" xml:space="preserve">
+    <value>启用 IPInfo 离线库 (ipinfoLocal.mmdb)</value>
+  </data>
   <data name="ERR_MSG" xml:space="preserve">
     <value>错误消息</value>
   </data>
-  <data name="ERR_WRITING_SETTTINGS" xml:space="preserve">
+  <data name="ERR_WRITING_SETTINGS" xml:space="preserve">
     <value>保存设置时出错</value>
   </data>
   <data name="EXCEPTIONAL_EXIT_MSG" xml:space="preserve">
     <value>NextTrace 进程异常退出，请参考错误消息以了解更多信息并及时向我们报告此问题。 退出代码：</value>
   </data>
   <data name="EXC_OUTPUT_FORM_PROMPT" xml:space="preserve">
-    <value>NextTrace 产生了一个或多个异常输出，请检查下面的输出信息以排查问题。同时，我们希望您能向我们报告这个问题来帮助我们改进 OpenTrace。</value>
+    <value>NextTrace 产生了一个或多个异常输出，请检查下面的输出信息以排查问题。您可以参考 NextTrace Wiki 来查看是否已经有解答；如未能找到答案，请向我们报告。</value>
   </data>
   <data name="EXC_OUTPUT_FORM_REPORT" xml:space="preserve">
     <value>报告问题</value>
@@ -172,13 +195,16 @@
     <value>异常输出</value>
   </data>
   <data name="EXE_PATH" xml:space="preserve">
-    <value>可执行文件目录</value>
+    <value>可执行文件路径</value>
   </data>
   <data name="EXPORT" xml:space="preserve">
     <value>导出</value>
   </data>
   <data name="EXPORT_TO" xml:space="preserve">
     <value>导出为</value>
+  </data>
+  <data name="FAILED_TO_ADD_RULES" xml:space="preserve">
+    <value>添加防火墙规则失败</value>
   </data>
   <data name="FILE" xml:space="preserve">
     <value>文件</value>
@@ -192,8 +218,14 @@
   <data name="GEOLOCATION" xml:space="preserve">
     <value>地理位置</value>
   </data>
+  <data name="GRID_SIZE_RATIO" xml:space="preserve">
+    <value>表格高度占比</value>
+  </data>
   <data name="HELP" xml:space="preserve">
     <value>帮助</value>
+  </data>
+  <data name="HIDE_ADD_FIREWALL_PROMPT" xml:space="preserve">
+    <value>不再提示添加防火墙规则</value>
   </data>
   <data name="HIDE_MAP_POPUP" xml:space="preserve">
     <value>隐藏地图上的信息窗口</value>
@@ -204,11 +236,14 @@
   <data name="HOSTNAME" xml:space="preserve">
     <value>主机名</value>
   </data>
+  <data name="IPINFO_TOKEN" xml:space="preserve">
+    <value>IPInfo Token (可选)</value>
+  </data>
   <data name="IP_GEO_DATA_PROVIDER" xml:space="preserve">
     <value>IP 地理位置数据源</value>
   </data>
   <data name="LANGUAGE" xml:space="preserve">
-    <value>语言</value>
+    <value>Language (语言)</value>
   </data>
   <data name="LAST" xml:space="preserve">
     <value>当前延迟</value>
@@ -218,6 +253,48 @@
   </data>
   <data name="LINKLOCAL_ADDR" xml:space="preserve">
     <value>链路本地地址</value>
+  </data>
+  <data name="LOCAL_MMDB" xml:space="preserve">
+    <value>本地 MMDB 覆写</value>
+  </data>
+  <data name="LOCAL_MMDB_ADDR" xml:space="preserve">
+    <value>地理位置模板</value>
+  </data>
+  <data name="LOCAL_MMDB_ASN" xml:space="preserve">
+    <value>ASN 模板</value>
+  </data>
+  <data name="LOCAL_MMDB_HOSTNAME" xml:space="preserve">
+    <value>主机名模板</value>
+  </data>
+  <data name="LOCAL_MMDB_LAT" xml:space="preserve">
+    <value>纬度模板</value>
+  </data>
+  <data name="LOCAL_MMDB_LON" xml:space="preserve">
+    <value>经度模板</value>
+  </data>
+  <data name="LOCAL_MMDB_ORG" xml:space="preserve">
+    <value>组织模板</value>
+  </data>
+  <data name="LOCAL_MMDB_PATH" xml:space="preserve">
+    <value>本地 MMDB 路径</value>
+  </data>
+  <data name="LOCAL_MMDB_PRESETS" xml:space="preserve">
+    <value>预设配置</value>
+  </data>
+  <data name="LOCAL_MMDB_PREVIEW" xml:space="preserve">
+    <value>预览 MMDB</value>
+  </data>
+  <data name="LOCAL_MMDB_PREVIEW_IP" xml:space="preserve">
+    <value>预览 IP</value>
+  </data>
+  <data name="LOCAL_MMDB_SELECT" xml:space="preserve">
+    <value>选择 MMDB 文件</value>
+  </data>
+  <data name="LOCAL_MMDB_TIPS" xml:space="preserve">
+    <value>此功能用本地 MMDB 查询的结果覆盖原查询结果
+留空以避免覆写对应字段
+模板举例: {.country}-{.city}
+</value>
   </data>
   <data name="LOOPBACK_ADDR" xml:space="preserve">
     <value>本地回环地址</value>
@@ -252,6 +329,29 @@
 
 是否现在下载 NextTrace？</value>
   </data>
+  <data name="MISSING_COMP_TEXT_MACOS" xml:space="preserve">
+    <value>OpenTrace 需要 NextTrace 才能正常工作，但未能找到可执行文件。
+请下载 NextTrace 并设置好权限：
+
+sudo xattr -r -d com.apple.quarantine /path/to/nexttrace
+sudo chown root:admin /path/to/nexttrace
+sudo chmod +sx /path/to/nexttrace
+
+然后在设置中指定 NextTrace 路径。
+
+是否现在下载 NextTrace？</value>
+  </data>
+  <data name="MISSING_COMP_PRIV_MACOS" xml:space="preserve">
+    <value>OpenTrace 需要权限才能进行 TCP/UDP 追踪。
+请为 NextTrace 设置权限:
+
+sudo xattr -r -d com.apple.quarantine /path/to/nexttrace
+sudo chown root:admin /path/to/nexttrace
+sudo chmod +sx /path/to/nexttrace</value>
+  </data>
+  <data name="MISSING_PRIV_MACOS" xml:space="preserve">
+    <value>OpenTrace 需要权限才能进行 TCP/UDP 追踪</value>
+  </data>
   <data name="MISSING_SPECIFIED_COMP" xml:space="preserve">
     <value>未能在指定的位置 "{0}" 中找到 NextTrace。</value>
   </data>
@@ -270,11 +370,15 @@
   <data name="NEXTTRACE_PROXY" xml:space="preserve">
     <value>代理设置</value>
   </data>
-  <data name="NO_RDNS" xml:space="preserve">
-    <value>禁用反向 DNS 查询</value>
+  <data name="RDNS_MODE" xml:space="preserve">
+    <value>反向 DNS 查询模式</value>
   </data>
   <data name="ORGANIZATION" xml:space="preserve">
     <value>组织</value>
+  </data>
+  <data name="OTHER_DATABASE_TIPS" xml:space="preserve">
+    <value>部分数据源只有在设置了 API 端点 / Token 之后才可被选择；
+若要使用离线数据库，请参考 NextTrace 文档进行设置。</value>
   </data>
   <data name="PACKET_GROUP_INTERVAL" xml:space="preserve">
     <value>分组请求间隔</value>
@@ -284,6 +388,15 @@
   </data>
   <data name="PARALLEL_REQ" xml:space="preserve">
     <value>并行请求数</value>
+  </data>
+  <data name="POW_PROVIDER" xml:space="preserve">
+    <value>LeoMoeAPI PoW 服务器</value>
+  </data>
+  <data name="POW_PROVIDER_LEOMOE" xml:space="preserve">
+    <value>api.leo.moe (默认)</value>
+  </data>
+  <data name="POW_PROVIDER_SAKURA" xml:space="preserve">
+    <value>Nya Labs (中国大陆优化)</value>
   </data>
   <data name="PREFERENCES" xml:space="preserve">
     <value>设置</value>
@@ -336,6 +449,9 @@
   <data name="STOP" xml:space="preserve">
     <value>停止</value>
   </data>
+  <data name="SYSTEM_DNS_RESOLVER" xml:space="preserve">
+    <value>系统 DNS</value>
+  </data>
   <data name="TIME_MS" xml:space="preserve">
     <value>时间(ms)</value>
   </data>
@@ -349,6 +465,53 @@
     <value>Windows 暂不支持 TCP/UDP Traceroute</value>
   </data>
   <data name="WORST" xml:space="preserve">
-    <value>最差延迟</value>
+    <value>最大延迟</value>
+  </data>
+  <data name="MACOS_QUARANTINE" xml:space="preserve">
+    <value>OpenTrace 被 macOS 隔离，工作可能不完全正常。
+请打开终端，使用下面的命令释放 OpenTrace:
+
+sudo xattr -r -d com.apple.quarantine &lt;将 OpenTrace 拖放至此&gt;
+
+并在完成释放后重启 OpenTrace.</value>
+  </data>
+  <data name="HOMEPAGE" xml:space="preserve">
+    <value>项目主页</value>
+  </data>
+  <data name="RDNS_MODE_ALWAYS" xml:space="preserve">
+    <value>尝试获取完整 rDNS</value>
+  </data>
+  <data name="RDNS_MODE_DEFAULT" xml:space="preserve">
+    <value>快速 rDNS（默认）</value>
+  </data>
+  <data name="RDNS_MODE_DISABLE" xml:space="preserve">
+    <value>禁用 rDNS 查询</value>
+  </data>
+  <data name="CHECK_UPDATE_ON_STARTUP" xml:space="preserve">
+    <value>启动时检查更新</value>
+  </data>
+  <data name="DOWNLOAD_LATEST" xml:space="preserve">
+    <value>下载最新版 OpenTrace</value>
+  </data>
+  <data name="UPDATE_AVAILABLE" xml:space="preserve">
+    <value>(最新版 {0} 已发布，可到帮助菜单下载)</value>
+  </data>
+  <data name="PRIVACY_MASKING" xml:space="preserve">
+    <value>隐私保护</value>
+  </data>
+  <data name="PRIVACY_MASKING_ALL" xml:space="preserve">
+    <value>跳的所有信息</value>
+  </data>
+  <data name="PRIVACY_MASKING_DESCR" xml:space="preserve">
+    <value>打码前</value>
+  </data>
+  <data name="PRIVACY_MASKING_IP_FULL" xml:space="preserve">
+    <value>跳的完整 IP</value>
+  </data>
+  <data name="PRIVACY_MASKING_IP_GEO" xml:space="preserve">
+    <value>跳的 IP 和地理位置</value>
+  </data>
+  <data name="PRIVACY_MASKING_IP_HALF" xml:space="preserve">
+    <value>跳的部分 IP</value>
   </data>
 </root>

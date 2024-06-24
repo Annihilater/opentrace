@@ -61,8 +61,8 @@ namespace OpenTrace
         [Setting(Name = "combineGeoOrg", Default = false)]
         public static bool combineGeoOrg { get; set; }
 
-        [Setting(Name = "no_rdns", Default = false)]
-        public static bool no_rdns { get; set; }
+        [Setting(Name = "rdns_mode", Default = "default")]
+        public static string rdns_mode { get; set; }
 
         [Setting(Name = "timeRounding", Default = false)]
         public static bool timeRounding { get; set; }
@@ -78,5 +78,65 @@ namespace OpenTrace
 
         [Setting(Name = "NextTraceProxy", Default = "")]
         public static string NextTraceProxy { get; set; }
+
+        [Setting(Name = "IPAPI_Base", Default = "")]
+        public static string IPAPI_Base { get; set; }
+
+        [Setting(Name = "hideAddICMPFirewallRule", Default = false)]
+        public static bool hideAddICMPFirewallRule { get; set; }
+
+        [Setting(Name = "enable_ip2region", Default = false)]
+        public static bool enable_ip2region { get; set; }
+        
+        [Setting(Name = "enable_ipinfolocal", Default = false)]
+        public static bool enable_ipinfolocal { get; set; }
+        
+        [Setting(Name = "customDNSResolvers", Default = "8.8.8.8#Google DNS\nhttps://cloudflare-dns.com/dns-query#CloudFlare DoH")]
+        public static string customDNSResolvers { get; set; }
+
+        [Setting(Name = "POWProvider", Default = "")]
+        public static string POWProvider { get; set; }
+
+        [Setting(Name = "gridSizePercentage", Default = 0.5)]
+        public static double gridSizePercentage { get; set; }
+
+        [Setting(Name = "localDBPath", Default = "")]
+        public static string localDBPath { get; set; }
+
+        [Setting(Name = "localDBAddr", Default = "")]
+        public static string localDBAddr { get; set; }
+
+        [Setting(Name = "localDBOrg", Default = "")]
+        public static string localDBOrg { get; set; }
+
+        [Setting(Name = "localDBLat", Default = "")]
+        public static string localDBLat { get; set; }
+
+        [Setting(Name = "localDBLon", Default = "")]
+        public static string localDBLon { get; set; }
+
+        [Setting(Name = "localDBASN", Default = "")]
+        public static string localDBASN { get; set; }
+        
+        [Setting(Name = "localDBHostname", Default = "")]
+        public static string localDBHostname { get; set; }
+
+        [Setting(Name = "checkUpdateOnStartup", Default = true)]
+        public static bool checkUpdateOnStartup { get; set; }
+
+        [Setting(Name = "maskedHops", Default = 0)]
+        public static int maskedHops { get; set; }
+
+        [Setting(Name = "maskedHopsMode", Default = "ip_half")]
+        public static string maskedHopsMode { get; set; }
+
+        [Setting(Name = "selectedDnsResolver", Default = "system")]
+        public static string selectedDnsResolver { get; set; }
+
+        [Setting(Name = "selectedProtocol", Default = "")]
+        public static string selectedProtocol { get; set; }
+
+        [Setting(Name = "selectedDataProvider", Default = "")]
+        public static string selectedDataProvider { get; set; }
     }
 }

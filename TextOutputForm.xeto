@@ -4,16 +4,13 @@
 	xmlns="http://schema.picoe.ca/eto.forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	xmlns:resource="clr-namespace:OpenTrace.Properties"
-	Title="{x:Static resource:Resources.EXC_OUTPUT_FORM_TITLE}"
+	Title="{x:Static resource:Resources.APPTITLE}"
 	MinimumSize="600,450"
 	Padding="10"
 	Closing="Form_Closing"
 	>
 	<TableLayout Spacing="5,5">
 		<TableRow>
-			<TableCell ScaleWidth="False">
-		<Label Text="{x:Static resource:Resources.EXC_OUTPUT_FORM_PROMPT}" Width="500"  Wrap="Word"></Label>
-			</TableCell>
 		</TableRow>
 		<TableRow ScaleHeight="True">
 			<TextArea x:Name="OutputContainer" ReadOnly="True"></TextArea>
@@ -21,12 +18,6 @@
 		<TableLayout Spacing="5,5">
 			<TableRow>
 				<TableCell ScaleWidth="True"></TableCell>
-				<TableCell>
-					<Button Click="ReportButton_Click" Text="NextTrace Wiki"></Button>
-				</TableCell>
-				<TableCell>
-					<Button Click="ReportButton_Click" Text="{x:Static resource:Resources.EXC_OUTPUT_FORM_REPORT}"></Button>
-				</TableCell>
 				<TableCell>
 					<Button Click="CloseButton_Click" Text="{x:Static resource:Resources.CLOSE}"></Button>
 				</TableCell>

@@ -88,6 +88,16 @@ namespace OpenTrace.Properties {
         }
         
         /// <summary>
+        ///   查找类似 NextTrace needs certain types (11 and 3) of ICMP messages to fully trace routes. But Windows firewall blocks these ICMP by default, causing only the last hop to be displayed.
+        ///Would you like to add a firewall rule to allow needed ICMP for NextTrace? 的本地化字符串。
+        /// </summary>
+        public static string ASK_ADD_ICMP_FIREWALL_RULE {
+            get {
+                return ResourceManager.GetString("ASK_ADD_ICMP_FIREWALL_RULE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 (Auto Detect) 的本地化字符串。
         /// </summary>
         public static string AUTO_DETECT {
@@ -123,7 +133,7 @@ namespace OpenTrace.Properties {
         ///		// 重新计算中心点并画图
         ///		map.clearOverlays(); //清除覆盖物
         ///		var pointlygon_array = []; //折线需要的数组
-        ///		for (var [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///		for (var i = 0; i &lt; this. [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         public static string baiduMap {
             get {
@@ -146,6 +156,15 @@ namespace OpenTrace.Properties {
         public static string CANCEL {
             get {
                 return ResourceManager.GetString("CANCEL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Check update on startup 的本地化字符串。
+        /// </summary>
+        public static string CHECK_UPDATE_ON_STARTUP {
+            get {
+                return ResourceManager.GetString("CHECK_UPDATE_ON_STARTUP", resourceCulture);
             }
         }
         
@@ -177,6 +196,25 @@ namespace OpenTrace.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Copy  的本地化字符串。
+        /// </summary>
+        public static string COPY {
+            get {
+                return ResourceManager.GetString("COPY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Custom DNS Resolvers
+        ///(DNS / DoH Supported) 的本地化字符串。
+        /// </summary>
+        public static string CUSTOM_DNS_RESOLVERS {
+            get {
+                return ResourceManager.GetString("CUSTOM_DNS_RESOLVERS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Disabled 的本地化字符串。
         /// </summary>
         public static string DISABLE_IPGEO {
@@ -186,11 +224,47 @@ namespace OpenTrace.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Download latest OpenTrace 的本地化字符串。
+        /// </summary>
+        public static string DOWNLOAD_LATEST {
+            get {
+                return ResourceManager.GetString("DOWNLOAD_LATEST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Destination port / Initial seq 的本地化字符串。
         /// </summary>
         public static string DST_PORT_INIT_SEQ {
             get {
                 return ResourceManager.GetString("DST_PORT_INIT_SEQ", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Host or IP cannot be empty 的本地化字符串。
+        /// </summary>
+        public static string EMPTY_HOSTNAME_MSGBOX {
+            get {
+                return ResourceManager.GetString("EMPTY_HOSTNAME_MSGBOX", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Enable offline database Ip2region (ip2region.db) 的本地化字符串。
+        /// </summary>
+        public static string ENABLE_IP2REGION {
+            get {
+                return ResourceManager.GetString("ENABLE_IP2REGION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Enable offline database IPInfo (ipinfoLocal.mmdb) 的本地化字符串。
+        /// </summary>
+        public static string ENABLE_IPINFOLOCAL {
+            get {
+                return ResourceManager.GetString("ENABLE_IPINFOLOCAL", resourceCulture);
             }
         }
         
@@ -206,14 +280,14 @@ namespace OpenTrace.Properties {
         /// <summary>
         ///   查找类似 Error writing app settings. 的本地化字符串。
         /// </summary>
-        public static string ERR_WRITING_SETTTINGS {
+        public static string ERR_WRITING_SETTINGS {
             get {
-                return ResourceManager.GetString("ERR_WRITING_SETTTINGS", resourceCulture);
+                return ResourceManager.GetString("ERR_WRITING_SETTINGS", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   查找类似 NextTrace generated one or more unexpected outputs during runtime. Please check the output below for troubleshooting. We also encourage you to report this issue to us, which can help us improve OpenTrace. 的本地化字符串。
+        ///   查找类似 NextTrace generated one or more unexpected outputs during runtime. Please check the output below for troubleshooting. You can refer to the NextTrace Wiki to see if there is already an answer; if you cannot find the answer, please report it to us. 的本地化字符串。
         /// </summary>
         public static string EXC_OUTPUT_FORM_PROMPT {
             get {
@@ -240,7 +314,7 @@ namespace OpenTrace.Properties {
         }
         
         /// <summary>
-        ///   查找类似 NextTrace process exited unexpectedly. Please refer to the error message to learn more and report this issue to us promptly. Exit Code:  的本地化字符串。
+        ///   查找类似 NextTrace process exited unexpectedly. Please refer to the error message to learn more and report this issue to us. Exit Code:  的本地化字符串。
         /// </summary>
         public static string EXCEPTIONAL_EXIT_MSG {
             get {
@@ -272,6 +346,15 @@ namespace OpenTrace.Properties {
         public static string EXPORT_TO {
             get {
                 return ResourceManager.GetString("EXPORT_TO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Failed to add firewall rules. 的本地化字符串。
+        /// </summary>
+        public static string FAILED_TO_ADD_RULES {
+            get {
+                return ResourceManager.GetString("FAILED_TO_ADD_RULES", resourceCulture);
             }
         }
         
@@ -325,11 +408,22 @@ namespace OpenTrace.Properties {
         ///	addHop: function (hop) {
         ///
         ///		// Parse the JSON string into an object
-        ///		const hopData = JSON.parse(h [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///		const hopData = JSON.parse(hop);
+        ///
+        ///		conso [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         public static string googleMap {
             get {
                 return ResourceManager.GetString("googleMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Grid Height Ratio 的本地化字符串。
+        /// </summary>
+        public static string GRID_SIZE_RATIO {
+            get {
+                return ResourceManager.GetString("GRID_SIZE_RATIO", resourceCulture);
             }
         }
         
@@ -339,6 +433,15 @@ namespace OpenTrace.Properties {
         public static string HELP {
             get {
                 return ResourceManager.GetString("HELP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Hide the prompt to add firewall rules 的本地化字符串。
+        /// </summary>
+        public static string HIDE_ADD_FIREWALL_PROMPT {
+            get {
+                return ResourceManager.GetString("HIDE_ADD_FIREWALL_PROMPT", resourceCulture);
             }
         }
         
@@ -361,6 +464,15 @@ namespace OpenTrace.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Homepage 的本地化字符串。
+        /// </summary>
+        public static string HOMEPAGE {
+            get {
+                return ResourceManager.GetString("HOMEPAGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Hostname 的本地化字符串。
         /// </summary>
         public static string HOSTNAME {
@@ -379,7 +491,16 @@ namespace OpenTrace.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Language 的本地化字符串。
+        ///   查找类似 IPInfo Token (Optional) 的本地化字符串。
+        /// </summary>
+        public static string IPINFO_TOKEN {
+            get {
+                return ResourceManager.GetString("IPINFO_TOKEN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Language (语言) 的本地化字符串。
         /// </summary>
         public static string LANGUAGE {
             get {
@@ -415,6 +536,125 @@ namespace OpenTrace.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Local MMDB Overwrite 的本地化字符串。
+        /// </summary>
+        public static string LOCAL_MMDB {
+            get {
+                return ResourceManager.GetString("LOCAL_MMDB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Address Template 的本地化字符串。
+        /// </summary>
+        public static string LOCAL_MMDB_ADDR {
+            get {
+                return ResourceManager.GetString("LOCAL_MMDB_ADDR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 ASN Template 的本地化字符串。
+        /// </summary>
+        public static string LOCAL_MMDB_ASN {
+            get {
+                return ResourceManager.GetString("LOCAL_MMDB_ASN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Hostname Template 的本地化字符串。
+        /// </summary>
+        public static string LOCAL_MMDB_HOSTNAME {
+            get {
+                return ResourceManager.GetString("LOCAL_MMDB_HOSTNAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Latitude Template 的本地化字符串。
+        /// </summary>
+        public static string LOCAL_MMDB_LAT {
+            get {
+                return ResourceManager.GetString("LOCAL_MMDB_LAT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Longitude Template 的本地化字符串。
+        /// </summary>
+        public static string LOCAL_MMDB_LON {
+            get {
+                return ResourceManager.GetString("LOCAL_MMDB_LON", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Organization Template 的本地化字符串。
+        /// </summary>
+        public static string LOCAL_MMDB_ORG {
+            get {
+                return ResourceManager.GetString("LOCAL_MMDB_ORG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Local MMDB Path 的本地化字符串。
+        /// </summary>
+        public static string LOCAL_MMDB_PATH {
+            get {
+                return ResourceManager.GetString("LOCAL_MMDB_PATH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Presets 的本地化字符串。
+        /// </summary>
+        public static string LOCAL_MMDB_PRESETS {
+            get {
+                return ResourceManager.GetString("LOCAL_MMDB_PRESETS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Preview MMDB File 的本地化字符串。
+        /// </summary>
+        public static string LOCAL_MMDB_PREVIEW {
+            get {
+                return ResourceManager.GetString("LOCAL_MMDB_PREVIEW", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Preview MMDB IP 的本地化字符串。
+        /// </summary>
+        public static string LOCAL_MMDB_PREVIEW_IP {
+            get {
+                return ResourceManager.GetString("LOCAL_MMDB_PREVIEW_IP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Select MMDB File 的本地化字符串。
+        /// </summary>
+        public static string LOCAL_MMDB_SELECT {
+            get {
+                return ResourceManager.GetString("LOCAL_MMDB_SELECT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Use MMDB query result overwrite original result
+        ///Leave empty to avoid overwrite field
+        ///Template Example: {.country}-{.city} 的本地化字符串。
+        /// </summary>
+        public static string LOCAL_MMDB_TIPS {
+            get {
+                return ResourceManager.GetString("LOCAL_MMDB_TIPS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Loopback Address 的本地化字符串。
         /// </summary>
         public static string LOOPBACK_ADDR {
@@ -429,6 +669,20 @@ namespace OpenTrace.Properties {
         public static string LOSS {
             get {
                 return ResourceManager.GetString("LOSS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 OpenTrace is quarantined by macOS, something may be inoperative.
+        ///Please release OpenTrace as follows:
+        ///
+        ///sudo xattr -r -d com.apple.quarantine &lt;drag and drop OpenTrace here&gt;
+        ///
+        ///And restart OpenTrace after execution. 的本地化字符串。
+        /// </summary>
+        public static string MACOS_QUARANTINE {
+            get {
+                return ResourceManager.GetString("MACOS_QUARANTINE", resourceCulture);
             }
         }
         
@@ -487,6 +741,20 @@ namespace OpenTrace.Properties {
         }
         
         /// <summary>
+        ///   查找类似 OpenTrace requires privileges to perform TCP/UDP trace.
+        ///Please set the permissions of NextTrace as follows:
+        ///
+        ///sudo xattr -r -d com.apple.quarantine /path/to/nexttrace
+        ///sudo chown root:admin /path/to/nexttrace
+        ///sudo chmod +sx /path/to/nexttrace 的本地化字符串。
+        /// </summary>
+        public static string MISSING_COMP_PRIV_MACOS {
+            get {
+                return ResourceManager.GetString("MISSING_COMP_PRIV_MACOS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 OpenTrace requires the NextTrace utility to function properly. This executable is currently missing.
         ///NextTrace can be placed in either:
         ///1. The same directory as the OpenTrace executable
@@ -498,6 +766,33 @@ namespace OpenTrace.Properties {
         public static string MISSING_COMP_TEXT {
             get {
                 return ResourceManager.GetString("MISSING_COMP_TEXT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 OpenTrace requires the NextTrace utility to function properly. This executable is currently missing.
+        ///Please download NextTrace and set the permissions as follows:
+        ///
+        ///sudo xattr -r -d com.apple.quarantine /path/to/nexttrace
+        ///sudo chown root:admin /path/to/nexttrace
+        ///sudo chmod +sx /path/to/nexttrace
+        ///
+        ///And specify the path in the settings.
+        ///
+        ///Would you like to download the NextTrace utility now? 的本地化字符串。
+        /// </summary>
+        public static string MISSING_COMP_TEXT_MACOS {
+            get {
+                return ResourceManager.GetString("MISSING_COMP_TEXT_MACOS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 OpenTrace requires privileges to perform TCP/UDP trace 的本地化字符串。
+        /// </summary>
+        public static string MISSING_PRIV_MACOS {
+            get {
+                return ResourceManager.GetString("MISSING_PRIV_MACOS", resourceCulture);
             }
         }
         
@@ -556,20 +851,21 @@ namespace OpenTrace.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Disable Reverse DNS Lookup 的本地化字符串。
-        /// </summary>
-        public static string NO_RDNS {
-            get {
-                return ResourceManager.GetString("NO_RDNS", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   查找类似 Organization 的本地化字符串。
         /// </summary>
         public static string ORGANIZATION {
             get {
                 return ResourceManager.GetString("ORGANIZATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Some data sources can only be selected after setting up an API endpoint/token.
+        ///To use an offline database, please refer to the NextTrace documentation to set it up. 的本地化字符串。
+        /// </summary>
+        public static string OTHER_DATABASE_TIPS {
+            get {
+                return ResourceManager.GetString("OTHER_DATABASE_TIPS", resourceCulture);
             }
         }
         
@@ -601,11 +897,92 @@ namespace OpenTrace.Properties {
         }
         
         /// <summary>
+        ///   查找类似 LeoMoeAPI PoW Provider 的本地化字符串。
+        /// </summary>
+        public static string POW_PROVIDER {
+            get {
+                return ResourceManager.GetString("POW_PROVIDER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 api.leo.moe (Default) 的本地化字符串。
+        /// </summary>
+        public static string POW_PROVIDER_LEOMOE {
+            get {
+                return ResourceManager.GetString("POW_PROVIDER_LEOMOE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Nya Labs (China Mainland Optimized) 的本地化字符串。
+        /// </summary>
+        public static string POW_PROVIDER_SAKURA {
+            get {
+                return ResourceManager.GetString("POW_PROVIDER_SAKURA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Preferences 的本地化字符串。
         /// </summary>
         public static string PREFERENCES {
             get {
                 return ResourceManager.GetString("PREFERENCES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Privacy Masking 的本地化字符串。
+        /// </summary>
+        public static string PRIVACY_MASKING {
+            get {
+                return ResourceManager.GetString("PRIVACY_MASKING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 hops by masking all info 的本地化字符串。
+        /// </summary>
+        public static string PRIVACY_MASKING_ALL {
+            get {
+                return ResourceManager.GetString("PRIVACY_MASKING_ALL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Protect the first 的本地化字符串。
+        /// </summary>
+        public static string PRIVACY_MASKING_DESCR {
+            get {
+                return ResourceManager.GetString("PRIVACY_MASKING_DESCR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 hops by fully masking IP 的本地化字符串。
+        /// </summary>
+        public static string PRIVACY_MASKING_IP_FULL {
+            get {
+                return ResourceManager.GetString("PRIVACY_MASKING_IP_FULL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 hops by masking IP and Geo 的本地化字符串。
+        /// </summary>
+        public static string PRIVACY_MASKING_IP_GEO {
+            get {
+                return ResourceManager.GetString("PRIVACY_MASKING_IP_GEO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 hops by partially masking IP 的本地化字符串。
+        /// </summary>
+        public static string PRIVACY_MASKING_IP_HALF {
+            get {
+                return ResourceManager.GetString("PRIVACY_MASKING_IP_HALF", resourceCulture);
             }
         }
         
@@ -646,6 +1023,42 @@ namespace OpenTrace.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Reverse DNS Lookup Mode 的本地化字符串。
+        /// </summary>
+        public static string RDNS_MODE {
+            get {
+                return ResourceManager.GetString("RDNS_MODE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Attempt to Retrieve Full rDNS 的本地化字符串。
+        /// </summary>
+        public static string RDNS_MODE_ALWAYS {
+            get {
+                return ResourceManager.GetString("RDNS_MODE_ALWAYS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Fast rDNS (Default) 的本地化字符串。
+        /// </summary>
+        public static string RDNS_MODE_DEFAULT {
+            get {
+                return ResourceManager.GetString("RDNS_MODE_DEFAULT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Disable rDNS Query 的本地化字符串。
+        /// </summary>
+        public static string RDNS_MODE_DISABLE {
+            get {
+                return ResourceManager.GetString("RDNS_MODE_DISABLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Recv 的本地化字符串。
         /// </summary>
         public static string RECV {
@@ -655,7 +1068,7 @@ namespace OpenTrace.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Some settings may require a restart to take effect 的本地化字符串。
+        ///   查找类似 Some settings will not be applied before the application is restarted 的本地化字符串。
         /// </summary>
         public static string RESTART_TO_APPLY {
             get {
@@ -754,6 +1167,15 @@ namespace OpenTrace.Properties {
         }
         
         /// <summary>
+        ///   查找类似 System DNS 的本地化字符串。
+        /// </summary>
+        public static string SYSTEM_DNS_RESOLVER {
+            get {
+                return ResourceManager.GetString("SYSTEM_DNS_RESOLVER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Time(ms) 的本地化字符串。
         /// </summary>
         public static string TIME_MS {
@@ -777,6 +1199,15 @@ namespace OpenTrace.Properties {
         public static string TRACEROUTING {
             get {
                 return ResourceManager.GetString("TRACEROUTING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 (Version {0} now available. Download it from the Help menu.) 的本地化字符串。
+        /// </summary>
+        public static string UPDATE_AVAILABLE {
+            get {
+                return ResourceManager.GetString("UPDATE_AVAILABLE", resourceCulture);
             }
         }
         
